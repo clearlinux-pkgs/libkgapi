@@ -6,7 +6,7 @@
 #
 Name     : libkgapi
 Version  : 18.08.0
-Release  : 1
+Release  : 2
 URL      : https://download.kde.org/stable/applications/18.08.0/src/libkgapi-18.08.0.tar.xz
 Source0  : https://download.kde.org/stable/applications/18.08.0/src/libkgapi-18.08.0.tar.xz
 Source99 : https://download.kde.org/stable/applications/18.08.0/src/libkgapi-18.08.0.tar.xz.sig
@@ -75,7 +75,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1535230693
+export SOURCE_DATE_EPOCH=1535434068
 mkdir clr-build
 pushd clr-build
 %cmake ..
@@ -83,7 +83,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1535230693
+export SOURCE_DATE_EPOCH=1535434068
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/doc/libkgapi
 cp LICENSE %{buildroot}/usr/share/doc/libkgapi/LICENSE
@@ -138,6 +138,7 @@ popd
 /usr/share/locale/uk/LC_MESSAGES/libkgapi_qt.qm
 /usr/share/locale/zh_CN/LC_MESSAGES/libkgapi_qt.qm
 /usr/share/locale/zh_TW/LC_MESSAGES/libkgapi_qt.qm
+/usr/share/xdg/libkgapi.categories
 
 %files dev
 %defattr(-,root,root,-)
