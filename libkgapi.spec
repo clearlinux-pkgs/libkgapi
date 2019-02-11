@@ -5,23 +5,22 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : libkgapi
-Version  : 18.08.0
-Release  : 2
-URL      : https://download.kde.org/stable/applications/18.08.0/src/libkgapi-18.08.0.tar.xz
-Source0  : https://download.kde.org/stable/applications/18.08.0/src/libkgapi-18.08.0.tar.xz
-Source99 : https://download.kde.org/stable/applications/18.08.0/src/libkgapi-18.08.0.tar.xz.sig
+Version  : 18.12.2
+Release  : 3
+URL      : https://download.kde.org/stable/applications/18.12.2/src/libkgapi-18.12.2.tar.xz
+Source0  : https://download.kde.org/stable/applications/18.12.2/src/libkgapi-18.12.2.tar.xz
+Source99 : https://download.kde.org/stable/applications/18.12.2/src/libkgapi-18.12.2.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : LGPL-2.1
-Requires: libkgapi-lib
-Requires: libkgapi-license
-Requires: libkgapi-data
+Requires: libkgapi-data = %{version}-%{release}
+Requires: libkgapi-lib = %{version}-%{release}
+Requires: libkgapi-license = %{version}-%{release}
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
-BuildRequires : cyrus-sasl-dev
+BuildRequires : extra-cmake-modules pkgconfig(libsasl2)
 BuildRequires : kcalcore-dev
 BuildRequires : kcontacts-dev
-BuildRequires : pkgconfig(libsasl2)
 BuildRequires : qtwebengine-dev
 
 %description
@@ -41,9 +40,9 @@ data components for the libkgapi package.
 %package dev
 Summary: dev components for the libkgapi package.
 Group: Development
-Requires: libkgapi-lib
-Requires: libkgapi-data
-Provides: libkgapi-devel
+Requires: libkgapi-lib = %{version}-%{release}
+Requires: libkgapi-data = %{version}-%{release}
+Provides: libkgapi-devel = %{version}-%{release}
 
 %description dev
 dev components for the libkgapi package.
@@ -52,8 +51,8 @@ dev components for the libkgapi package.
 %package lib
 Summary: lib components for the libkgapi package.
 Group: Libraries
-Requires: libkgapi-data
-Requires: libkgapi-license
+Requires: libkgapi-data = %{version}-%{release}
+Requires: libkgapi-license = %{version}-%{release}
 
 %description lib
 lib components for the libkgapi package.
@@ -68,25 +67,25 @@ license components for the libkgapi package.
 
 
 %prep
-%setup -q -n libkgapi-18.08.0
+%setup -q -n libkgapi-18.12.2
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1535434068
-mkdir clr-build
+export SOURCE_DATE_EPOCH=1549862916
+mkdir -p clr-build
 pushd clr-build
 %cmake ..
-make  %{?_smp_mflags}
+make  %{?_smp_mflags} VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1535434068
+export SOURCE_DATE_EPOCH=1549862916
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/doc/libkgapi
-cp LICENSE %{buildroot}/usr/share/doc/libkgapi/LICENSE
+mkdir -p %{buildroot}/usr/share/package-licenses/libkgapi
+cp LICENSE %{buildroot}/usr/share/package-licenses/libkgapi/LICENSE
 pushd clr-build
 %make_install
 popd
@@ -97,7 +96,6 @@ popd
 %files data
 %defattr(-,root,root,-)
 /usr/share/locale/ar/LC_MESSAGES/libkgapi_qt.qm
-/usr/share/locale/ast/LC_MESSAGES/libkgapi_qt.qm
 /usr/share/locale/bs/LC_MESSAGES/libkgapi_qt.qm
 /usr/share/locale/ca/LC_MESSAGES/libkgapi_qt.qm
 /usr/share/locale/ca@valencia/LC_MESSAGES/libkgapi_qt.qm
@@ -407,25 +405,25 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKPimGAPIBlogger.so.5
-/usr/lib64/libKPimGAPIBlogger.so.5.9.0
+/usr/lib64/libKPimGAPIBlogger.so.5.10.2
 /usr/lib64/libKPimGAPICalendar.so.5
-/usr/lib64/libKPimGAPICalendar.so.5.9.0
+/usr/lib64/libKPimGAPICalendar.so.5.10.2
 /usr/lib64/libKPimGAPIContacts.so.5
-/usr/lib64/libKPimGAPIContacts.so.5.9.0
+/usr/lib64/libKPimGAPIContacts.so.5.10.2
 /usr/lib64/libKPimGAPICore.so.5
-/usr/lib64/libKPimGAPICore.so.5.9.0
+/usr/lib64/libKPimGAPICore.so.5.10.2
 /usr/lib64/libKPimGAPIDrive.so.5
-/usr/lib64/libKPimGAPIDrive.so.5.9.0
+/usr/lib64/libKPimGAPIDrive.so.5.10.2
 /usr/lib64/libKPimGAPILatitude.so.5
-/usr/lib64/libKPimGAPILatitude.so.5.9.0
+/usr/lib64/libKPimGAPILatitude.so.5.10.2
 /usr/lib64/libKPimGAPIMaps.so.5
-/usr/lib64/libKPimGAPIMaps.so.5.9.0
+/usr/lib64/libKPimGAPIMaps.so.5.10.2
 /usr/lib64/libKPimGAPITasks.so.5
-/usr/lib64/libKPimGAPITasks.so.5.9.0
+/usr/lib64/libKPimGAPITasks.so.5.10.2
 /usr/lib64/sasl2/libkdexoauth2.so
 /usr/lib64/sasl2/libkdexoauth2.so.3
 /usr/lib64/sasl2/libkdexoauth2.so.3.0.0
 
 %files license
-%defattr(-,root,root,-)
-/usr/share/doc/libkgapi/LICENSE
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/libkgapi/LICENSE
