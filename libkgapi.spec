@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : libkgapi
-Version  : 18.12.2
-Release  : 3
-URL      : https://download.kde.org/stable/applications/18.12.2/src/libkgapi-18.12.2.tar.xz
-Source0  : https://download.kde.org/stable/applications/18.12.2/src/libkgapi-18.12.2.tar.xz
-Source99 : https://download.kde.org/stable/applications/18.12.2/src/libkgapi-18.12.2.tar.xz.sig
+Version  : 18.12.3
+Release  : 4
+URL      : https://download.kde.org/stable/applications/18.12.3/src/libkgapi-18.12.3.tar.xz
+Source0  : https://download.kde.org/stable/applications/18.12.3/src/libkgapi-18.12.3.tar.xz
+Source99 : https://download.kde.org/stable/applications/18.12.3/src/libkgapi-18.12.3.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : LGPL-2.1
@@ -67,22 +67,23 @@ license components for the libkgapi package.
 
 
 %prep
-%setup -q -n libkgapi-18.12.2
+%setup -q -n libkgapi-18.12.3
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1549862916
+export SOURCE_DATE_EPOCH=1552010917
 mkdir -p clr-build
 pushd clr-build
+export LDFLAGS="${LDFLAGS} -fno-lto"
 %cmake ..
 make  %{?_smp_mflags} VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1549862916
+export SOURCE_DATE_EPOCH=1552010917
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libkgapi
 cp LICENSE %{buildroot}/usr/share/package-licenses/libkgapi/LICENSE
@@ -405,21 +406,21 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKPimGAPIBlogger.so.5
-/usr/lib64/libKPimGAPIBlogger.so.5.10.2
+/usr/lib64/libKPimGAPIBlogger.so.5.10.3
 /usr/lib64/libKPimGAPICalendar.so.5
-/usr/lib64/libKPimGAPICalendar.so.5.10.2
+/usr/lib64/libKPimGAPICalendar.so.5.10.3
 /usr/lib64/libKPimGAPIContacts.so.5
-/usr/lib64/libKPimGAPIContacts.so.5.10.2
+/usr/lib64/libKPimGAPIContacts.so.5.10.3
 /usr/lib64/libKPimGAPICore.so.5
-/usr/lib64/libKPimGAPICore.so.5.10.2
+/usr/lib64/libKPimGAPICore.so.5.10.3
 /usr/lib64/libKPimGAPIDrive.so.5
-/usr/lib64/libKPimGAPIDrive.so.5.10.2
+/usr/lib64/libKPimGAPIDrive.so.5.10.3
 /usr/lib64/libKPimGAPILatitude.so.5
-/usr/lib64/libKPimGAPILatitude.so.5.10.2
+/usr/lib64/libKPimGAPILatitude.so.5.10.3
 /usr/lib64/libKPimGAPIMaps.so.5
-/usr/lib64/libKPimGAPIMaps.so.5.10.2
+/usr/lib64/libKPimGAPIMaps.so.5.10.3
 /usr/lib64/libKPimGAPITasks.so.5
-/usr/lib64/libKPimGAPITasks.so.5.10.2
+/usr/lib64/libKPimGAPITasks.so.5.10.3
 /usr/lib64/sasl2/libkdexoauth2.so
 /usr/lib64/sasl2/libkdexoauth2.so.3
 /usr/lib64/sasl2/libkdexoauth2.so.3.0.0
