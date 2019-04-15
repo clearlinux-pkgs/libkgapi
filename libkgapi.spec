@@ -6,11 +6,11 @@
 #
 Name     : libkgapi
 Version  : 18.12.3
-Release  : 4
+Release  : 5
 URL      : https://download.kde.org/stable/applications/18.12.3/src/libkgapi-18.12.3.tar.xz
 Source0  : https://download.kde.org/stable/applications/18.12.3/src/libkgapi-18.12.3.tar.xz
 Source99 : https://download.kde.org/stable/applications/18.12.3/src/libkgapi-18.12.3.tar.xz.sig
-Summary  : No detailed summary available
+Summary  : A KDE-based library for accessing various Google services via their public API
 Group    : Development/Tools
 License  : LGPL-2.1
 Requires: libkgapi-data = %{version}-%{release}
@@ -18,9 +18,11 @@ Requires: libkgapi-lib = %{version}-%{release}
 Requires: libkgapi-license = %{version}-%{release}
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
+BuildRequires : cyrus-sasl-dev
 BuildRequires : extra-cmake-modules pkgconfig(libsasl2)
 BuildRequires : kcalcore-dev
 BuildRequires : kcontacts-dev
+BuildRequires : pkgconfig(libsasl2)
 BuildRequires : qtwebengine-dev
 
 %description
@@ -43,6 +45,7 @@ Group: Development
 Requires: libkgapi-lib = %{version}-%{release}
 Requires: libkgapi-data = %{version}-%{release}
 Provides: libkgapi-devel = %{version}-%{release}
+Requires: libkgapi = %{version}-%{release}
 
 %description dev
 dev components for the libkgapi package.
@@ -74,16 +77,15 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1552010917
+export SOURCE_DATE_EPOCH=1555352814
 mkdir -p clr-build
 pushd clr-build
-export LDFLAGS="${LDFLAGS} -fno-lto"
 %cmake ..
-make  %{?_smp_mflags} VERBOSE=1
+make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1552010917
+export SOURCE_DATE_EPOCH=1555352814
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libkgapi
 cp LICENSE %{buildroot}/usr/share/package-licenses/libkgapi/LICENSE
