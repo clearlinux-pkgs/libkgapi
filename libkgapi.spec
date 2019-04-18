@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : libkgapi
-Version  : 18.12.3
-Release  : 5
-URL      : https://download.kde.org/stable/applications/18.12.3/src/libkgapi-18.12.3.tar.xz
-Source0  : https://download.kde.org/stable/applications/18.12.3/src/libkgapi-18.12.3.tar.xz
-Source99 : https://download.kde.org/stable/applications/18.12.3/src/libkgapi-18.12.3.tar.xz.sig
+Version  : 19.04.0
+Release  : 6
+URL      : https://download.kde.org/stable/applications/19.04.0/src/libkgapi-19.04.0.tar.xz
+Source0  : https://download.kde.org/stable/applications/19.04.0/src/libkgapi-19.04.0.tar.xz
+Source99 : https://download.kde.org/stable/applications/19.04.0/src/libkgapi-19.04.0.tar.xz.sig
 Summary  : A KDE-based library for accessing various Google services via their public API
 Group    : Development/Tools
 License  : LGPL-2.1
@@ -18,16 +18,13 @@ Requires: libkgapi-lib = %{version}-%{release}
 Requires: libkgapi-license = %{version}-%{release}
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
-BuildRequires : cyrus-sasl-dev
 BuildRequires : extra-cmake-modules pkgconfig(libsasl2)
 BuildRequires : kcalcore-dev
 BuildRequires : kcontacts-dev
-BuildRequires : pkgconfig(libsasl2)
 BuildRequires : qtwebengine-dev
 
 %description
-LibKGAPI
-========================
+# LibKGAPI
 LibKGAPI (previously called LibKGoogle) is a C++ library that implements APIs for
 various Google services.
 
@@ -70,14 +67,14 @@ license components for the libkgapi package.
 
 
 %prep
-%setup -q -n libkgapi-18.12.3
+%setup -q -n libkgapi-19.04.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1555352814
+export SOURCE_DATE_EPOCH=1555624305
 mkdir -p clr-build
 pushd clr-build
 %cmake ..
@@ -85,7 +82,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1555352814
+export SOURCE_DATE_EPOCH=1555624305
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libkgapi
 cp LICENSE %{buildroot}/usr/share/package-licenses/libkgapi/LICENSE
@@ -173,6 +170,7 @@ popd
 /usr/include/KPim/KGAPI/KGAPI/Calendar/CalendarDeleteJob
 /usr/include/KPim/KGAPI/KGAPI/Calendar/CalendarFetchJob
 /usr/include/KPim/KGAPI/KGAPI/Calendar/CalendarModifyJob
+/usr/include/KPim/KGAPI/KGAPI/Calendar/Enums
 /usr/include/KPim/KGAPI/KGAPI/Calendar/Event
 /usr/include/KPim/KGAPI/KGAPI/Calendar/EventCreateJob
 /usr/include/KPim/KGAPI/KGAPI/Calendar/EventDeleteJob
@@ -231,6 +229,13 @@ popd
 /usr/include/KPim/KGAPI/KGAPI/Drive/RevisionDeleteJob
 /usr/include/KPim/KGAPI/KGAPI/Drive/RevisionFetchJob
 /usr/include/KPim/KGAPI/KGAPI/Drive/RevisionModifyJob
+/usr/include/KPim/KGAPI/KGAPI/Drive/SearchQuery
+/usr/include/KPim/KGAPI/KGAPI/Drive/Teamdrive
+/usr/include/KPim/KGAPI/KGAPI/Drive/TeamdriveCreateJob
+/usr/include/KPim/KGAPI/KGAPI/Drive/TeamdriveDeleteJob
+/usr/include/KPim/KGAPI/KGAPI/Drive/TeamdriveFetchJob
+/usr/include/KPim/KGAPI/KGAPI/Drive/TeamdriveModifyJob
+/usr/include/KPim/KGAPI/KGAPI/Drive/TeamdriveSearchQuery
 /usr/include/KPim/KGAPI/KGAPI/Drive/User
 /usr/include/KPim/KGAPI/KGAPI/FetchJob
 /usr/include/KPim/KGAPI/KGAPI/Job
@@ -290,6 +295,7 @@ popd
 /usr/include/KPim/KGAPI/kgapi/calendar/calendardeletejob.h
 /usr/include/KPim/KGAPI/kgapi/calendar/calendarfetchjob.h
 /usr/include/KPim/KGAPI/kgapi/calendar/calendarmodifyjob.h
+/usr/include/KPim/KGAPI/kgapi/calendar/enums.h
 /usr/include/KPim/KGAPI/kgapi/calendar/event.h
 /usr/include/KPim/KGAPI/kgapi/calendar/eventcreatejob.h
 /usr/include/KPim/KGAPI/kgapi/calendar/eventdeletejob.h
@@ -351,6 +357,13 @@ popd
 /usr/include/KPim/KGAPI/kgapi/drive/revisiondeletejob.h
 /usr/include/KPim/KGAPI/kgapi/drive/revisionfetchjob.h
 /usr/include/KPim/KGAPI/kgapi/drive/revisionmodifyjob.h
+/usr/include/KPim/KGAPI/kgapi/drive/searchquery.h
+/usr/include/KPim/KGAPI/kgapi/drive/teamdrive.h
+/usr/include/KPim/KGAPI/kgapi/drive/teamdrivecreatejob.h
+/usr/include/KPim/KGAPI/kgapi/drive/teamdrivedeletejob.h
+/usr/include/KPim/KGAPI/kgapi/drive/teamdrivefetchjob.h
+/usr/include/KPim/KGAPI/kgapi/drive/teamdrivemodifyjob.h
+/usr/include/KPim/KGAPI/kgapi/drive/teamdrivesearchquery.h
 /usr/include/KPim/KGAPI/kgapi/drive/user.h
 /usr/include/KPim/KGAPI/kgapi/fetchjob.h
 /usr/include/KPim/KGAPI/kgapi/job.h
@@ -408,21 +421,21 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKPimGAPIBlogger.so.5
-/usr/lib64/libKPimGAPIBlogger.so.5.10.3
+/usr/lib64/libKPimGAPIBlogger.so.5.11.0
 /usr/lib64/libKPimGAPICalendar.so.5
-/usr/lib64/libKPimGAPICalendar.so.5.10.3
+/usr/lib64/libKPimGAPICalendar.so.5.11.0
 /usr/lib64/libKPimGAPIContacts.so.5
-/usr/lib64/libKPimGAPIContacts.so.5.10.3
+/usr/lib64/libKPimGAPIContacts.so.5.11.0
 /usr/lib64/libKPimGAPICore.so.5
-/usr/lib64/libKPimGAPICore.so.5.10.3
+/usr/lib64/libKPimGAPICore.so.5.11.0
 /usr/lib64/libKPimGAPIDrive.so.5
-/usr/lib64/libKPimGAPIDrive.so.5.10.3
+/usr/lib64/libKPimGAPIDrive.so.5.11.0
 /usr/lib64/libKPimGAPILatitude.so.5
-/usr/lib64/libKPimGAPILatitude.so.5.10.3
+/usr/lib64/libKPimGAPILatitude.so.5.11.0
 /usr/lib64/libKPimGAPIMaps.so.5
-/usr/lib64/libKPimGAPIMaps.so.5.10.3
+/usr/lib64/libKPimGAPIMaps.so.5.11.0
 /usr/lib64/libKPimGAPITasks.so.5
-/usr/lib64/libKPimGAPITasks.so.5.10.3
+/usr/lib64/libKPimGAPITasks.so.5.11.0
 /usr/lib64/sasl2/libkdexoauth2.so
 /usr/lib64/sasl2/libkdexoauth2.so.3
 /usr/lib64/sasl2/libkdexoauth2.so.3.0.0
