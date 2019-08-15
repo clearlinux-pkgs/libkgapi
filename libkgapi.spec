@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : libkgapi
-Version  : 19.04.3
-Release  : 10
-URL      : https://download.kde.org/stable/applications/19.04.3/src/libkgapi-19.04.3.tar.xz
-Source0  : https://download.kde.org/stable/applications/19.04.3/src/libkgapi-19.04.3.tar.xz
-Source99 : https://download.kde.org/stable/applications/19.04.3/src/libkgapi-19.04.3.tar.xz.sig
+Version  : 19.08.0
+Release  : 11
+URL      : https://download.kde.org/stable/applications/19.08.0/src/libkgapi-19.08.0.tar.xz
+Source0  : https://download.kde.org/stable/applications/19.08.0/src/libkgapi-19.08.0.tar.xz
+Source1 : https://download.kde.org/stable/applications/19.08.0/src/libkgapi-19.08.0.tar.xz.sig
 Summary  : A KDE-based library for accessing various Google services via their public API
 Group    : Development/Tools
 License  : LGPL-2.1
@@ -68,16 +68,17 @@ license components for the libkgapi package.
 
 
 %prep
-%setup -q -n libkgapi-19.04.3
+%setup -q -n libkgapi-19.08.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1562886988
+export SOURCE_DATE_EPOCH=1565913551
 mkdir -p clr-build
 pushd clr-build
+# -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -91,7 +92,7 @@ make  %{?_smp_mflags} VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1562886988
+export SOURCE_DATE_EPOCH=1565913551
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libkgapi
 cp LICENSE %{buildroot}/usr/share/package-licenses/libkgapi/LICENSE
@@ -145,7 +146,7 @@ popd
 /usr/share/locale/uk/LC_MESSAGES/libkgapi_qt.qm
 /usr/share/locale/zh_CN/LC_MESSAGES/libkgapi_qt.qm
 /usr/share/locale/zh_TW/LC_MESSAGES/libkgapi_qt.qm
-/usr/share/xdg/libkgapi.categories
+/usr/share/qlogging-categories5/libkgapi.categories
 
 %files dev
 %defattr(-,root,root,-)
@@ -211,6 +212,13 @@ popd
 /usr/include/KPim/KGAPI/KGAPI/Drive/ChildReferenceCreateJob
 /usr/include/KPim/KGAPI/KGAPI/Drive/ChildReferenceDeleteJob
 /usr/include/KPim/KGAPI/KGAPI/Drive/ChildReferenceFetchJob
+/usr/include/KPim/KGAPI/KGAPI/Drive/Drives
+/usr/include/KPim/KGAPI/KGAPI/Drive/DrivesCreateJob
+/usr/include/KPim/KGAPI/KGAPI/Drive/DrivesDeleteJob
+/usr/include/KPim/KGAPI/KGAPI/Drive/DrivesFetchJob
+/usr/include/KPim/KGAPI/KGAPI/Drive/DrivesHideJob
+/usr/include/KPim/KGAPI/KGAPI/Drive/DrivesModifyJob
+/usr/include/KPim/KGAPI/KGAPI/Drive/DrivesSearchQuery
 /usr/include/KPim/KGAPI/KGAPI/Drive/File
 /usr/include/KPim/KGAPI/KGAPI/Drive/FileAbstractDataJob
 /usr/include/KPim/KGAPI/KGAPI/Drive/FileAbstractModifyJob
@@ -338,6 +346,13 @@ popd
 /usr/include/KPim/KGAPI/kgapi/drive/childreferencecreatejob.h
 /usr/include/KPim/KGAPI/kgapi/drive/childreferencedeletejob.h
 /usr/include/KPim/KGAPI/kgapi/drive/childreferencefetchjob.h
+/usr/include/KPim/KGAPI/kgapi/drive/drives.h
+/usr/include/KPim/KGAPI/kgapi/drive/drivescreatejob.h
+/usr/include/KPim/KGAPI/kgapi/drive/drivesdeletejob.h
+/usr/include/KPim/KGAPI/kgapi/drive/drivesfetchjob.h
+/usr/include/KPim/KGAPI/kgapi/drive/driveshidejob.h
+/usr/include/KPim/KGAPI/kgapi/drive/drivesmodifyjob.h
+/usr/include/KPim/KGAPI/kgapi/drive/drivessearchquery.h
 /usr/include/KPim/KGAPI/kgapi/drive/file.h
 /usr/include/KPim/KGAPI/kgapi/drive/fileabstractdatajob.h
 /usr/include/KPim/KGAPI/kgapi/drive/fileabstractmodifyjob.h
@@ -430,21 +445,21 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKPimGAPIBlogger.so.5
-/usr/lib64/libKPimGAPIBlogger.so.5.11.3
+/usr/lib64/libKPimGAPIBlogger.so.5.12.0
 /usr/lib64/libKPimGAPICalendar.so.5
-/usr/lib64/libKPimGAPICalendar.so.5.11.3
+/usr/lib64/libKPimGAPICalendar.so.5.12.0
 /usr/lib64/libKPimGAPIContacts.so.5
-/usr/lib64/libKPimGAPIContacts.so.5.11.3
+/usr/lib64/libKPimGAPIContacts.so.5.12.0
 /usr/lib64/libKPimGAPICore.so.5
-/usr/lib64/libKPimGAPICore.so.5.11.3
+/usr/lib64/libKPimGAPICore.so.5.12.0
 /usr/lib64/libKPimGAPIDrive.so.5
-/usr/lib64/libKPimGAPIDrive.so.5.11.3
+/usr/lib64/libKPimGAPIDrive.so.5.12.0
 /usr/lib64/libKPimGAPILatitude.so.5
-/usr/lib64/libKPimGAPILatitude.so.5.11.3
+/usr/lib64/libKPimGAPILatitude.so.5.12.0
 /usr/lib64/libKPimGAPIMaps.so.5
-/usr/lib64/libKPimGAPIMaps.so.5.11.3
+/usr/lib64/libKPimGAPIMaps.so.5.12.0
 /usr/lib64/libKPimGAPITasks.so.5
-/usr/lib64/libKPimGAPITasks.so.5.11.3
+/usr/lib64/libKPimGAPITasks.so.5.12.0
 /usr/lib64/sasl2/libkdexoauth2.so
 /usr/lib64/sasl2/libkdexoauth2.so.3
 /usr/lib64/sasl2/libkdexoauth2.so.3.0.0
