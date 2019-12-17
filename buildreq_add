@@ -1,2 +1,6 @@
 # This file contains additional build requirements that did not get
 # picked up automatically. One name per line, no whitespace.
+cyrus-sasl-dev
+kcalendarcore-dev
+kcontacts-dev
+qtwebengine-dev
