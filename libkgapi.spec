@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : libkgapi
-Version  : 20.04.0
-Release  : 20
-URL      : https://download.kde.org/stable/release-service/20.04.0/src/libkgapi-20.04.0.tar.xz
-Source0  : https://download.kde.org/stable/release-service/20.04.0/src/libkgapi-20.04.0.tar.xz
-Source1  : https://download.kde.org/stable/release-service/20.04.0/src/libkgapi-20.04.0.tar.xz.sig
+Version  : 20.04.1
+Release  : 21
+URL      : https://download.kde.org/stable/release-service/20.04.1/src/libkgapi-20.04.1.tar.xz
+Source0  : https://download.kde.org/stable/release-service/20.04.1/src/libkgapi-20.04.1.tar.xz
+Source1  : https://download.kde.org/stable/release-service/20.04.1/src/libkgapi-20.04.1.tar.xz.sig
 Summary  : A KDE-based library for accessing various Google services via their public API
 Group    : Development/Tools
 License  : LGPL-2.1
@@ -20,9 +20,11 @@ BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
 BuildRequires : cyrus-sasl-dev
 BuildRequires : extra-cmake-modules pkgconfig(libsasl2)
+BuildRequires : extra-cmake-modules-data
 BuildRequires : kcalendarcore-dev
 BuildRequires : kcontacts-dev
 BuildRequires : pkgconfig(libsasl2)
+BuildRequires : qtbase-dev
 BuildRequires : qtwebengine-dev
 
 %description
@@ -44,7 +46,6 @@ Group: Development
 Requires: libkgapi-lib = %{version}-%{release}
 Requires: libkgapi-data = %{version}-%{release}
 Provides: libkgapi-devel = %{version}-%{release}
-Requires: libkgapi = %{version}-%{release}
 Requires: libkgapi = %{version}-%{release}
 
 %description dev
@@ -70,35 +71,34 @@ license components for the libkgapi package.
 
 
 %prep
-%setup -q -n libkgapi-20.04.0
-cd %{_builddir}/libkgapi-20.04.0
+%setup -q -n libkgapi-20.04.1
+cd %{_builddir}/libkgapi-20.04.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1587681268
+export SOURCE_DATE_EPOCH=1589834960
 mkdir -p clr-build
 pushd clr-build
-# -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
 export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FCFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
 export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 %cmake ..
 make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1587681268
+export SOURCE_DATE_EPOCH=1589834960
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libkgapi
-cp %{_builddir}/libkgapi-20.04.0/LICENSE %{buildroot}/usr/share/package-licenses/libkgapi/01a6b4bf79aca9b556822601186afab86e8c4fbf
+cp %{_builddir}/libkgapi-20.04.1/LICENSE %{buildroot}/usr/share/package-licenses/libkgapi/01a6b4bf79aca9b556822601186afab86e8c4fbf
 pushd clr-build
 %make_install
 popd
@@ -449,21 +449,21 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKPimGAPIBlogger.so.5
-/usr/lib64/libKPimGAPIBlogger.so.5.14.0
+/usr/lib64/libKPimGAPIBlogger.so.5.14.1
 /usr/lib64/libKPimGAPICalendar.so.5
-/usr/lib64/libKPimGAPICalendar.so.5.14.0
+/usr/lib64/libKPimGAPICalendar.so.5.14.1
 /usr/lib64/libKPimGAPIContacts.so.5
-/usr/lib64/libKPimGAPIContacts.so.5.14.0
+/usr/lib64/libKPimGAPIContacts.so.5.14.1
 /usr/lib64/libKPimGAPICore.so.5
-/usr/lib64/libKPimGAPICore.so.5.14.0
+/usr/lib64/libKPimGAPICore.so.5.14.1
 /usr/lib64/libKPimGAPIDrive.so.5
-/usr/lib64/libKPimGAPIDrive.so.5.14.0
+/usr/lib64/libKPimGAPIDrive.so.5.14.1
 /usr/lib64/libKPimGAPILatitude.so.5
-/usr/lib64/libKPimGAPILatitude.so.5.14.0
+/usr/lib64/libKPimGAPILatitude.so.5.14.1
 /usr/lib64/libKPimGAPIMaps.so.5
-/usr/lib64/libKPimGAPIMaps.so.5.14.0
+/usr/lib64/libKPimGAPIMaps.so.5.14.1
 /usr/lib64/libKPimGAPITasks.so.5
-/usr/lib64/libKPimGAPITasks.so.5.14.0
+/usr/lib64/libKPimGAPITasks.so.5.14.1
 /usr/lib64/sasl2/libkdexoauth2.so
 /usr/lib64/sasl2/libkdexoauth2.so.3
 /usr/lib64/sasl2/libkdexoauth2.so.3.0.0
