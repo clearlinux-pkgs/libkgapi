@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : libkgapi
-Version  : 20.04.1
-Release  : 21
-URL      : https://download.kde.org/stable/release-service/20.04.1/src/libkgapi-20.04.1.tar.xz
-Source0  : https://download.kde.org/stable/release-service/20.04.1/src/libkgapi-20.04.1.tar.xz
-Source1  : https://download.kde.org/stable/release-service/20.04.1/src/libkgapi-20.04.1.tar.xz.sig
+Version  : 20.04.2
+Release  : 22
+URL      : https://download.kde.org/stable/release-service/20.04.2/src/libkgapi-20.04.2.tar.xz
+Source0  : https://download.kde.org/stable/release-service/20.04.2/src/libkgapi-20.04.2.tar.xz
+Source1  : https://download.kde.org/stable/release-service/20.04.2/src/libkgapi-20.04.2.tar.xz.sig
 Summary  : A KDE-based library for accessing various Google services via their public API
 Group    : Development/Tools
 License  : LGPL-2.1
@@ -71,15 +71,15 @@ license components for the libkgapi package.
 
 
 %prep
-%setup -q -n libkgapi-20.04.1
-cd %{_builddir}/libkgapi-20.04.1
+%setup -q -n libkgapi-20.04.2
+cd %{_builddir}/libkgapi-20.04.2
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1589834960
+export SOURCE_DATE_EPOCH=1591890911
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -95,10 +95,10 @@ make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1589834960
+export SOURCE_DATE_EPOCH=1591890911
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libkgapi
-cp %{_builddir}/libkgapi-20.04.1/LICENSE %{buildroot}/usr/share/package-licenses/libkgapi/01a6b4bf79aca9b556822601186afab86e8c4fbf
+cp %{_builddir}/libkgapi-20.04.2/LICENSE %{buildroot}/usr/share/package-licenses/libkgapi/01a6b4bf79aca9b556822601186afab86e8c4fbf
 pushd clr-build
 %make_install
 popd
@@ -449,21 +449,21 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKPimGAPIBlogger.so.5
-/usr/lib64/libKPimGAPIBlogger.so.5.14.1
+/usr/lib64/libKPimGAPIBlogger.so.5.14.2
 /usr/lib64/libKPimGAPICalendar.so.5
-/usr/lib64/libKPimGAPICalendar.so.5.14.1
+/usr/lib64/libKPimGAPICalendar.so.5.14.2
 /usr/lib64/libKPimGAPIContacts.so.5
-/usr/lib64/libKPimGAPIContacts.so.5.14.1
+/usr/lib64/libKPimGAPIContacts.so.5.14.2
 /usr/lib64/libKPimGAPICore.so.5
-/usr/lib64/libKPimGAPICore.so.5.14.1
+/usr/lib64/libKPimGAPICore.so.5.14.2
 /usr/lib64/libKPimGAPIDrive.so.5
-/usr/lib64/libKPimGAPIDrive.so.5.14.1
+/usr/lib64/libKPimGAPIDrive.so.5.14.2
 /usr/lib64/libKPimGAPILatitude.so.5
-/usr/lib64/libKPimGAPILatitude.so.5.14.1
+/usr/lib64/libKPimGAPILatitude.so.5.14.2
 /usr/lib64/libKPimGAPIMaps.so.5
-/usr/lib64/libKPimGAPIMaps.so.5.14.1
+/usr/lib64/libKPimGAPIMaps.so.5.14.2
 /usr/lib64/libKPimGAPITasks.so.5
-/usr/lib64/libKPimGAPITasks.so.5.14.1
+/usr/lib64/libKPimGAPITasks.so.5.14.2
 /usr/lib64/sasl2/libkdexoauth2.so
 /usr/lib64/sasl2/libkdexoauth2.so.3
 /usr/lib64/sasl2/libkdexoauth2.so.3.0.0
