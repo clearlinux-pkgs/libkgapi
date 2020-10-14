@@ -6,7 +6,7 @@
 #
 Name     : libkgapi
 Version  : 20.08.2
-Release  : 24
+Release  : 25
 URL      : https://download.kde.org/stable/release-service/20.08.2/src/libkgapi-20.08.2.tar.xz
 Source0  : https://download.kde.org/stable/release-service/20.08.2/src/libkgapi-20.08.2.tar.xz
 Source1  : https://download.kde.org/stable/release-service/20.08.2/src/libkgapi-20.08.2.tar.xz.sig
@@ -79,7 +79,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1602613408
+export SOURCE_DATE_EPOCH=1602646350
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -95,7 +95,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1602613408
+export SOURCE_DATE_EPOCH=1602646350
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libkgapi
 cp %{_builddir}/libkgapi-20.08.2/LICENSES/LGPL-2.1-only.txt %{buildroot}/usr/share/package-licenses/libkgapi/3c3d7573e137d48253731c975ecf90d74cfa9efe
