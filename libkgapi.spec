@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : libkgapi
-Version  : 20.08.3
-Release  : 26
-URL      : https://download.kde.org/stable/release-service/20.08.3/src/libkgapi-20.08.3.tar.xz
-Source0  : https://download.kde.org/stable/release-service/20.08.3/src/libkgapi-20.08.3.tar.xz
-Source1  : https://download.kde.org/stable/release-service/20.08.3/src/libkgapi-20.08.3.tar.xz.sig
+Version  : 20.12.0
+Release  : 27
+URL      : https://download.kde.org/stable/release-service/20.12.0/src/libkgapi-20.12.0.tar.xz
+Source0  : https://download.kde.org/stable/release-service/20.12.0/src/libkgapi-20.12.0.tar.xz
+Source1  : https://download.kde.org/stable/release-service/20.12.0/src/libkgapi-20.12.0.tar.xz.sig
 Summary  : A KDE-based library for accessing various Google services via their public API
 Group    : Development/Tools
 License  : LGPL-2.1 LGPL-3.0
@@ -71,15 +71,15 @@ license components for the libkgapi package.
 
 
 %prep
-%setup -q -n libkgapi-20.08.3
-cd %{_builddir}/libkgapi-20.08.3
+%setup -q -n libkgapi-20.12.0
+cd %{_builddir}/libkgapi-20.12.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1604610751
+export SOURCE_DATE_EPOCH=1607912008
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -95,13 +95,13 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1604610751
+export SOURCE_DATE_EPOCH=1607912008
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libkgapi
-cp %{_builddir}/libkgapi-20.08.3/LICENSES/LGPL-2.1-only.txt %{buildroot}/usr/share/package-licenses/libkgapi/3c3d7573e137d48253731c975ecf90d74cfa9efe
-cp %{_builddir}/libkgapi-20.08.3/LICENSES/LGPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/libkgapi/757b86330df80f81143d5916b3e92b4bcb1b1890
-cp %{_builddir}/libkgapi-20.08.3/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/libkgapi/e458941548e0864907e654fa2e192844ae90fc32
-cp %{_builddir}/libkgapi-20.08.3/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/libkgapi/e458941548e0864907e654fa2e192844ae90fc32
+cp %{_builddir}/libkgapi-20.12.0/LICENSES/LGPL-2.1-only.txt %{buildroot}/usr/share/package-licenses/libkgapi/3c3d7573e137d48253731c975ecf90d74cfa9efe
+cp %{_builddir}/libkgapi-20.12.0/LICENSES/LGPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/libkgapi/757b86330df80f81143d5916b3e92b4bcb1b1890
+cp %{_builddir}/libkgapi-20.12.0/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/libkgapi/e458941548e0864907e654fa2e192844ae90fc32
+cp %{_builddir}/libkgapi-20.12.0/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/libkgapi/e458941548e0864907e654fa2e192844ae90fc32
 pushd clr-build
 %make_install
 popd
@@ -162,7 +162,6 @@ popd
 /usr/include/KPim/KGAPI/KGAPI/AccountInfoFetchJob
 /usr/include/KPim/KGAPI/KGAPI/AccountManager
 /usr/include/KPim/KGAPI/KGAPI/AuthJob
-/usr/include/KPim/KGAPI/KGAPI/AuthWidget
 /usr/include/KPim/KGAPI/KGAPI/Blogger/Blog
 /usr/include/KPim/KGAPI/KGAPI/Blogger/BlogFetchJob
 /usr/include/KPim/KGAPI/KGAPI/Blogger/Comment
@@ -229,6 +228,7 @@ popd
 /usr/include/KPim/KGAPI/KGAPI/Drive/File
 /usr/include/KPim/KGAPI/KGAPI/Drive/FileAbstractDataJob
 /usr/include/KPim/KGAPI/KGAPI/Drive/FileAbstractModifyJob
+/usr/include/KPim/KGAPI/KGAPI/Drive/FileAbstractResumableJob
 /usr/include/KPim/KGAPI/KGAPI/Drive/FileAbstractUploadJob
 /usr/include/KPim/KGAPI/KGAPI/Drive/FileCopyJob
 /usr/include/KPim/KGAPI/KGAPI/Drive/FileCreateJob
@@ -236,6 +236,8 @@ popd
 /usr/include/KPim/KGAPI/KGAPI/Drive/FileFetchContentJob
 /usr/include/KPim/KGAPI/KGAPI/Drive/FileFetchJob
 /usr/include/KPim/KGAPI/KGAPI/Drive/FileModifyJob
+/usr/include/KPim/KGAPI/KGAPI/Drive/FileResumableCreateJob
+/usr/include/KPim/KGAPI/KGAPI/Drive/FileResumableModifyJob
 /usr/include/KPim/KGAPI/KGAPI/Drive/FileSearchQuery
 /usr/include/KPim/KGAPI/KGAPI/Drive/FileTouchJob
 /usr/include/KPim/KGAPI/KGAPI/Drive/FileTrashJob
@@ -293,7 +295,6 @@ popd
 /usr/include/KPim/KGAPI/kgapi/accountinfofetchjob.h
 /usr/include/KPim/KGAPI/kgapi/accountmanager.h
 /usr/include/KPim/KGAPI/kgapi/authjob.h
-/usr/include/KPim/KGAPI/kgapi/authwidget.h
 /usr/include/KPim/KGAPI/kgapi/blogger/blog.h
 /usr/include/KPim/KGAPI/kgapi/blogger/blogfetchjob.h
 /usr/include/KPim/KGAPI/kgapi/blogger/comment.h
@@ -363,6 +364,7 @@ popd
 /usr/include/KPim/KGAPI/kgapi/drive/file.h
 /usr/include/KPim/KGAPI/kgapi/drive/fileabstractdatajob.h
 /usr/include/KPim/KGAPI/kgapi/drive/fileabstractmodifyjob.h
+/usr/include/KPim/KGAPI/kgapi/drive/fileabstractresumablejob.h
 /usr/include/KPim/KGAPI/kgapi/drive/fileabstractuploadjob.h
 /usr/include/KPim/KGAPI/kgapi/drive/filecopyjob.h
 /usr/include/KPim/KGAPI/kgapi/drive/filecreatejob.h
@@ -370,6 +372,8 @@ popd
 /usr/include/KPim/KGAPI/kgapi/drive/filefetchcontentjob.h
 /usr/include/KPim/KGAPI/kgapi/drive/filefetchjob.h
 /usr/include/KPim/KGAPI/kgapi/drive/filemodifyjob.h
+/usr/include/KPim/KGAPI/kgapi/drive/fileresumablecreatejob.h
+/usr/include/KPim/KGAPI/kgapi/drive/fileresumablemodifyjob.h
 /usr/include/KPim/KGAPI/kgapi/drive/filesearchquery.h
 /usr/include/KPim/KGAPI/kgapi/drive/filetouchjob.h
 /usr/include/KPim/KGAPI/kgapi/drive/filetrashjob.h
@@ -452,21 +456,21 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKPimGAPIBlogger.so.5
-/usr/lib64/libKPimGAPIBlogger.so.5.15.3
+/usr/lib64/libKPimGAPIBlogger.so.5.16.0
 /usr/lib64/libKPimGAPICalendar.so.5
-/usr/lib64/libKPimGAPICalendar.so.5.15.3
+/usr/lib64/libKPimGAPICalendar.so.5.16.0
 /usr/lib64/libKPimGAPIContacts.so.5
-/usr/lib64/libKPimGAPIContacts.so.5.15.3
+/usr/lib64/libKPimGAPIContacts.so.5.16.0
 /usr/lib64/libKPimGAPICore.so.5
-/usr/lib64/libKPimGAPICore.so.5.15.3
+/usr/lib64/libKPimGAPICore.so.5.16.0
 /usr/lib64/libKPimGAPIDrive.so.5
-/usr/lib64/libKPimGAPIDrive.so.5.15.3
+/usr/lib64/libKPimGAPIDrive.so.5.16.0
 /usr/lib64/libKPimGAPILatitude.so.5
-/usr/lib64/libKPimGAPILatitude.so.5.15.3
+/usr/lib64/libKPimGAPILatitude.so.5.16.0
 /usr/lib64/libKPimGAPIMaps.so.5
-/usr/lib64/libKPimGAPIMaps.so.5.15.3
+/usr/lib64/libKPimGAPIMaps.so.5.16.0
 /usr/lib64/libKPimGAPITasks.so.5
-/usr/lib64/libKPimGAPITasks.so.5.15.3
+/usr/lib64/libKPimGAPITasks.so.5.16.0
 /usr/lib64/sasl2/libkdexoauth2.so
 /usr/lib64/sasl2/libkdexoauth2.so.3
 /usr/lib64/sasl2/libkdexoauth2.so.3.0.0
