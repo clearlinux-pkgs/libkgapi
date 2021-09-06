@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : libkgapi
-Version  : 21.04.2
-Release  : 31
-URL      : https://download.kde.org/stable/release-service/21.04.2/src/libkgapi-21.04.2.tar.xz
-Source0  : https://download.kde.org/stable/release-service/21.04.2/src/libkgapi-21.04.2.tar.xz
-Source1  : https://download.kde.org/stable/release-service/21.04.2/src/libkgapi-21.04.2.tar.xz.sig
+Version  : 21.08.1
+Release  : 32
+URL      : https://download.kde.org/stable/release-service/21.08.1/src/libkgapi-21.08.1.tar.xz
+Source0  : https://download.kde.org/stable/release-service/21.08.1/src/libkgapi-21.08.1.tar.xz
+Source1  : https://download.kde.org/stable/release-service/21.08.1/src/libkgapi-21.08.1.tar.xz.sig
 Summary  : A KDE-based library for accessing various Google services via their public API
 Group    : Development/Tools
 License  : BSD-3-Clause CC0-1.0 LGPL-2.1 LGPL-3.0
@@ -71,39 +71,40 @@ license components for the libkgapi package.
 
 
 %prep
-%setup -q -n libkgapi-21.04.2
-cd %{_builddir}/libkgapi-21.04.2
+%setup -q -n libkgapi-21.08.1
+cd %{_builddir}/libkgapi-21.08.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1623353643
+export SOURCE_DATE_EPOCH=1630901780
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
-export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
+export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=auto "
+export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
+export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
+export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=auto "
 %cmake ..
 make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1623353643
+export SOURCE_DATE_EPOCH=1630901780
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libkgapi
-cp %{_builddir}/libkgapi-21.04.2/CMakePresets.json.license %{buildroot}/usr/share/package-licenses/libkgapi/29fb05b49e12a380545499938c4879440bd8851e
-cp %{_builddir}/libkgapi-21.04.2/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/libkgapi/8287b608d3fa40ef401339fd907ca1260c964123
-cp %{_builddir}/libkgapi-21.04.2/LICENSES/LGPL-2.1-only.txt %{buildroot}/usr/share/package-licenses/libkgapi/3c3d7573e137d48253731c975ecf90d74cfa9efe
-cp %{_builddir}/libkgapi-21.04.2/LICENSES/LGPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/libkgapi/757b86330df80f81143d5916b3e92b4bcb1b1890
-cp %{_builddir}/libkgapi-21.04.2/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/libkgapi/e458941548e0864907e654fa2e192844ae90fc32
-cp %{_builddir}/libkgapi-21.04.2/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/libkgapi/e458941548e0864907e654fa2e192844ae90fc32
+cp %{_builddir}/libkgapi-21.08.1/CMakePresets.json.license %{buildroot}/usr/share/package-licenses/libkgapi/29fb05b49e12a380545499938c4879440bd8851e
+cp %{_builddir}/libkgapi-21.08.1/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/libkgapi/8287b608d3fa40ef401339fd907ca1260c964123
+cp %{_builddir}/libkgapi-21.08.1/LICENSES/LGPL-2.1-only.txt %{buildroot}/usr/share/package-licenses/libkgapi/3c3d7573e137d48253731c975ecf90d74cfa9efe
+cp %{_builddir}/libkgapi-21.08.1/LICENSES/LGPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/libkgapi/757b86330df80f81143d5916b3e92b4bcb1b1890
+cp %{_builddir}/libkgapi-21.08.1/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/libkgapi/e458941548e0864907e654fa2e192844ae90fc32
+cp %{_builddir}/libkgapi-21.08.1/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/libkgapi/e458941548e0864907e654fa2e192844ae90fc32
+cp %{_builddir}/libkgapi-21.08.1/metainfo.yaml.license %{buildroot}/usr/share/package-licenses/libkgapi/7ff5a7dd2c915b2b34329c892e06917c5f82f3a4
 pushd clr-build
 %make_install
 popd
@@ -458,21 +459,21 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKPimGAPIBlogger.so.5
-/usr/lib64/libKPimGAPIBlogger.so.5.17.2
+/usr/lib64/libKPimGAPIBlogger.so.5.18.1
 /usr/lib64/libKPimGAPICalendar.so.5
-/usr/lib64/libKPimGAPICalendar.so.5.17.2
+/usr/lib64/libKPimGAPICalendar.so.5.18.1
 /usr/lib64/libKPimGAPIContacts.so.5
-/usr/lib64/libKPimGAPIContacts.so.5.17.2
+/usr/lib64/libKPimGAPIContacts.so.5.18.1
 /usr/lib64/libKPimGAPICore.so.5
-/usr/lib64/libKPimGAPICore.so.5.17.2
+/usr/lib64/libKPimGAPICore.so.5.18.1
 /usr/lib64/libKPimGAPIDrive.so.5
-/usr/lib64/libKPimGAPIDrive.so.5.17.2
+/usr/lib64/libKPimGAPIDrive.so.5.18.1
 /usr/lib64/libKPimGAPILatitude.so.5
-/usr/lib64/libKPimGAPILatitude.so.5.17.2
+/usr/lib64/libKPimGAPILatitude.so.5.18.1
 /usr/lib64/libKPimGAPIMaps.so.5
-/usr/lib64/libKPimGAPIMaps.so.5.17.2
+/usr/lib64/libKPimGAPIMaps.so.5.18.1
 /usr/lib64/libKPimGAPITasks.so.5
-/usr/lib64/libKPimGAPITasks.so.5.17.2
+/usr/lib64/libKPimGAPITasks.so.5.18.1
 /usr/lib64/sasl2/libkdexoauth2.so
 /usr/lib64/sasl2/libkdexoauth2.so.3
 /usr/lib64/sasl2/libkdexoauth2.so.3.0.0
@@ -482,5 +483,6 @@ popd
 /usr/share/package-licenses/libkgapi/29fb05b49e12a380545499938c4879440bd8851e
 /usr/share/package-licenses/libkgapi/3c3d7573e137d48253731c975ecf90d74cfa9efe
 /usr/share/package-licenses/libkgapi/757b86330df80f81143d5916b3e92b4bcb1b1890
+/usr/share/package-licenses/libkgapi/7ff5a7dd2c915b2b34329c892e06917c5f82f3a4
 /usr/share/package-licenses/libkgapi/8287b608d3fa40ef401339fd907ca1260c964123
 /usr/share/package-licenses/libkgapi/e458941548e0864907e654fa2e192844ae90fc32
