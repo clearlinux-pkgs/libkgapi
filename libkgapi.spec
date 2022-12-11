@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : libkgapi
-Version  : 22.08.3
-Release  : 47
-URL      : https://download.kde.org/stable/release-service/22.08.3/src/libkgapi-22.08.3.tar.xz
-Source0  : https://download.kde.org/stable/release-service/22.08.3/src/libkgapi-22.08.3.tar.xz
-Source1  : https://download.kde.org/stable/release-service/22.08.3/src/libkgapi-22.08.3.tar.xz.sig
+Version  : 22.12.0
+Release  : 48
+URL      : https://download.kde.org/stable/release-service/22.12.0/src/libkgapi-22.12.0.tar.xz
+Source0  : https://download.kde.org/stable/release-service/22.12.0/src/libkgapi-22.12.0.tar.xz
+Source1  : https://download.kde.org/stable/release-service/22.12.0/src/libkgapi-22.12.0.tar.xz.sig
 Summary  : A KDE-based library for accessing various Google services via their public API
 Group    : Development/Tools
 License  : BSD-3-Clause CC0-1.0 LGPL-2.1 LGPL-3.0
@@ -68,15 +68,15 @@ license components for the libkgapi package.
 
 
 %prep
-%setup -q -n libkgapi-22.08.3
-cd %{_builddir}/libkgapi-22.08.3
+%setup -q -n libkgapi-22.12.0
+cd %{_builddir}/libkgapi-22.12.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1667857194
+export SOURCE_DATE_EPOCH=1670784461
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -92,18 +92,18 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1667857194
+export SOURCE_DATE_EPOCH=1670784461
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libkgapi
-cp %{_builddir}/libkgapi-%{version}/CMakePresets.json.license %{buildroot}/usr/share/package-licenses/libkgapi/c085897bc39e05746ffd2d889a6e84ff1b7ae2d9 || :
-cp %{_builddir}/libkgapi-%{version}/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/libkgapi/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c || :
-cp %{_builddir}/libkgapi-%{version}/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/libkgapi/8287b608d3fa40ef401339fd907ca1260c964123 || :
-cp %{_builddir}/libkgapi-%{version}/LICENSES/LGPL-2.1-only.txt %{buildroot}/usr/share/package-licenses/libkgapi/3c3d7573e137d48253731c975ecf90d74cfa9efe || :
-cp %{_builddir}/libkgapi-%{version}/LICENSES/LGPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/libkgapi/757b86330df80f81143d5916b3e92b4bcb1b1890 || :
-cp %{_builddir}/libkgapi-%{version}/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/libkgapi/e458941548e0864907e654fa2e192844ae90fc32 || :
-cp %{_builddir}/libkgapi-%{version}/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/libkgapi/e458941548e0864907e654fa2e192844ae90fc32 || :
-cp %{_builddir}/libkgapi-%{version}/README.md.license %{buildroot}/usr/share/package-licenses/libkgapi/5906415d14f11136c25fd1433c5561706103e7cf || :
-cp %{_builddir}/libkgapi-%{version}/metainfo.yaml.license %{buildroot}/usr/share/package-licenses/libkgapi/7ff5a7dd2c915b2b34329c892e06917c5f82f3a4 || :
+cp %{_builddir}/libkgapi-%{version}/CMakePresets.json.license %{buildroot}/usr/share/package-licenses/libkgapi/c085897bc39e05746ffd2d889a6e84ff1b7ae2d9
+cp %{_builddir}/libkgapi-%{version}/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/libkgapi/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c
+cp %{_builddir}/libkgapi-%{version}/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/libkgapi/8287b608d3fa40ef401339fd907ca1260c964123
+cp %{_builddir}/libkgapi-%{version}/LICENSES/LGPL-2.1-only.txt %{buildroot}/usr/share/package-licenses/libkgapi/3c3d7573e137d48253731c975ecf90d74cfa9efe
+cp %{_builddir}/libkgapi-%{version}/LICENSES/LGPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/libkgapi/757b86330df80f81143d5916b3e92b4bcb1b1890
+cp %{_builddir}/libkgapi-%{version}/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/libkgapi/e458941548e0864907e654fa2e192844ae90fc32
+cp %{_builddir}/libkgapi-%{version}/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/libkgapi/e458941548e0864907e654fa2e192844ae90fc32
+cp %{_builddir}/libkgapi-%{version}/README.md.license %{buildroot}/usr/share/package-licenses/libkgapi/5906415d14f11136c25fd1433c5561706103e7cf
+cp %{_builddir}/libkgapi-%{version}/metainfo.yaml.license %{buildroot}/usr/share/package-licenses/libkgapi/7ff5a7dd2c915b2b34329c892e06917c5f82f3a4
 pushd clr-build
 %make_install
 popd
@@ -132,6 +132,7 @@ popd
 /usr/share/locale/ia/LC_MESSAGES/libkgapi_qt.qm
 /usr/share/locale/it/LC_MESSAGES/libkgapi_qt.qm
 /usr/share/locale/ja/LC_MESSAGES/libkgapi_qt.qm
+/usr/share/locale/ka/LC_MESSAGES/libkgapi_qt.qm
 /usr/share/locale/kk/LC_MESSAGES/libkgapi_qt.qm
 /usr/share/locale/km/LC_MESSAGES/libkgapi_qt.qm
 /usr/share/locale/ko/LC_MESSAGES/libkgapi_qt.qm
@@ -149,6 +150,9 @@ popd
 /usr/share/locale/sk/LC_MESSAGES/libkgapi_qt.qm
 /usr/share/locale/sl/LC_MESSAGES/libkgapi_qt.qm
 /usr/share/locale/sr/LC_MESSAGES/libkgapi_qt.qm
+/usr/share/locale/sr@ijekavian/LC_MESSAGES/libkgapi_qt.qm
+/usr/share/locale/sr@ijekavianlatin/LC_MESSAGES/libkgapi_qt.qm
+/usr/share/locale/sr@latin/LC_MESSAGES/libkgapi_qt.qm
 /usr/share/locale/sv/LC_MESSAGES/libkgapi_qt.qm
 /usr/share/locale/tr/LC_MESSAGES/libkgapi_qt.qm
 /usr/share/locale/ug/LC_MESSAGES/libkgapi_qt.qm
@@ -458,21 +462,21 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKPimGAPIBlogger.so.5
-/usr/lib64/libKPimGAPIBlogger.so.5.21.3
+/usr/lib64/libKPimGAPIBlogger.so.5.22.0
 /usr/lib64/libKPimGAPICalendar.so.5
-/usr/lib64/libKPimGAPICalendar.so.5.21.3
+/usr/lib64/libKPimGAPICalendar.so.5.22.0
 /usr/lib64/libKPimGAPIContacts.so.5
-/usr/lib64/libKPimGAPIContacts.so.5.21.3
+/usr/lib64/libKPimGAPIContacts.so.5.22.0
 /usr/lib64/libKPimGAPICore.so.5
-/usr/lib64/libKPimGAPICore.so.5.21.3
+/usr/lib64/libKPimGAPICore.so.5.22.0
 /usr/lib64/libKPimGAPIDrive.so.5
-/usr/lib64/libKPimGAPIDrive.so.5.21.3
+/usr/lib64/libKPimGAPIDrive.so.5.22.0
 /usr/lib64/libKPimGAPILatitude.so.5
-/usr/lib64/libKPimGAPILatitude.so.5.21.3
+/usr/lib64/libKPimGAPILatitude.so.5.22.0
 /usr/lib64/libKPimGAPIMaps.so.5
-/usr/lib64/libKPimGAPIMaps.so.5.21.3
+/usr/lib64/libKPimGAPIMaps.so.5.22.0
 /usr/lib64/libKPimGAPITasks.so.5
-/usr/lib64/libKPimGAPITasks.so.5.21.3
+/usr/lib64/libKPimGAPITasks.so.5.22.0
 /usr/lib64/sasl2/libkdexoauth2.so
 /usr/lib64/sasl2/libkdexoauth2.so.3
 /usr/lib64/sasl2/libkdexoauth2.so.3.0.0
