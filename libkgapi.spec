@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : libkgapi
-Version  : 22.12.2
-Release  : 51
-URL      : https://download.kde.org/stable/release-service/22.12.2/src/libkgapi-22.12.2.tar.xz
-Source0  : https://download.kde.org/stable/release-service/22.12.2/src/libkgapi-22.12.2.tar.xz
-Source1  : https://download.kde.org/stable/release-service/22.12.2/src/libkgapi-22.12.2.tar.xz.sig
+Version  : 22.12.3
+Release  : 52
+URL      : https://download.kde.org/stable/release-service/22.12.3/src/libkgapi-22.12.3.tar.xz
+Source0  : https://download.kde.org/stable/release-service/22.12.3/src/libkgapi-22.12.3.tar.xz
+Source1  : https://download.kde.org/stable/release-service/22.12.3/src/libkgapi-22.12.3.tar.xz.sig
 Summary  : A KDE-based library for accessing various Google services via their public API
 Group    : Development/Tools
 License  : BSD-3-Clause CC0-1.0 LGPL-2.1 LGPL-3.0
@@ -71,15 +71,15 @@ license components for the libkgapi package.
 
 
 %prep
-%setup -q -n libkgapi-22.12.2
-cd %{_builddir}/libkgapi-22.12.2
+%setup -q -n libkgapi-22.12.3
+cd %{_builddir}/libkgapi-22.12.3
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1676862849
+export SOURCE_DATE_EPOCH=1677777418
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -95,7 +95,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1676862849
+export SOURCE_DATE_EPOCH=1677777418
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libkgapi
 cp %{_builddir}/libkgapi-%{version}/CMakePresets.json.license %{buildroot}/usr/share/package-licenses/libkgapi/c085897bc39e05746ffd2d889a6e84ff1b7ae2d9 || :
@@ -466,21 +466,21 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKPimGAPIBlogger.so.5
-/usr/lib64/libKPimGAPIBlogger.so.5.22.2
+/usr/lib64/libKPimGAPIBlogger.so.5.22.3
 /usr/lib64/libKPimGAPICalendar.so.5
-/usr/lib64/libKPimGAPICalendar.so.5.22.2
+/usr/lib64/libKPimGAPICalendar.so.5.22.3
 /usr/lib64/libKPimGAPIContacts.so.5
-/usr/lib64/libKPimGAPIContacts.so.5.22.2
+/usr/lib64/libKPimGAPIContacts.so.5.22.3
 /usr/lib64/libKPimGAPICore.so.5
-/usr/lib64/libKPimGAPICore.so.5.22.2
+/usr/lib64/libKPimGAPICore.so.5.22.3
 /usr/lib64/libKPimGAPIDrive.so.5
-/usr/lib64/libKPimGAPIDrive.so.5.22.2
+/usr/lib64/libKPimGAPIDrive.so.5.22.3
 /usr/lib64/libKPimGAPILatitude.so.5
-/usr/lib64/libKPimGAPILatitude.so.5.22.2
+/usr/lib64/libKPimGAPILatitude.so.5.22.3
 /usr/lib64/libKPimGAPIMaps.so.5
-/usr/lib64/libKPimGAPIMaps.so.5.22.2
+/usr/lib64/libKPimGAPIMaps.so.5.22.3
 /usr/lib64/libKPimGAPITasks.so.5
-/usr/lib64/libKPimGAPITasks.so.5.22.2
+/usr/lib64/libKPimGAPITasks.so.5.22.3
 /usr/lib64/sasl2/libkdexoauth2.so
 /usr/lib64/sasl2/libkdexoauth2.so.3
 /usr/lib64/sasl2/libkdexoauth2.so.3.0.0
