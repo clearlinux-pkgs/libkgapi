@@ -8,11 +8,11 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : libkgapi
-Version  : 23.08.3
-Release  : 62
-URL      : https://download.kde.org/stable/release-service/23.08.3/src/libkgapi-23.08.3.tar.xz
-Source0  : https://download.kde.org/stable/release-service/23.08.3/src/libkgapi-23.08.3.tar.xz
-Source1  : https://download.kde.org/stable/release-service/23.08.3/src/libkgapi-23.08.3.tar.xz.sig
+Version  : 23.08.4
+Release  : 63
+URL      : https://download.kde.org/stable/release-service/23.08.4/src/libkgapi-23.08.4.tar.xz
+Source0  : https://download.kde.org/stable/release-service/23.08.4/src/libkgapi-23.08.4.tar.xz
+Source1  : https://download.kde.org/stable/release-service/23.08.4/src/libkgapi-23.08.4.tar.xz.sig
 Summary  : A KDE-based library for accessing various Google services via their public API
 Group    : Development/Tools
 License  : BSD-3-Clause CC0-1.0 LGPL-2.1 LGPL-3.0
@@ -74,15 +74,15 @@ license components for the libkgapi package.
 
 
 %prep
-%setup -q -n libkgapi-23.08.3
-cd %{_builddir}/libkgapi-23.08.3
+%setup -q -n libkgapi-23.08.4
+cd %{_builddir}/libkgapi-23.08.4
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1702017606
+export SOURCE_DATE_EPOCH=1702931005
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -141,7 +141,7 @@ FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS"
 FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS"
 ASFLAGS="$CLEAR_INTERMEDIATE_ASFLAGS"
 LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS"
-export SOURCE_DATE_EPOCH=1702017606
+export SOURCE_DATE_EPOCH=1702931005
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libkgapi
 cp %{_builddir}/libkgapi-%{version}/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/libkgapi/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c || :
@@ -604,31 +604,31 @@ popd
 
 %files lib
 %defattr(-,root,root,-)
-/V3/usr/lib64/libKPim5GAPIBlogger.so.5.24.3
-/V3/usr/lib64/libKPim5GAPICalendar.so.5.24.3
-/V3/usr/lib64/libKPim5GAPICore.so.5.24.3
-/V3/usr/lib64/libKPim5GAPIDrive.so.5.24.3
-/V3/usr/lib64/libKPim5GAPILatitude.so.5.24.3
-/V3/usr/lib64/libKPim5GAPIMaps.so.5.24.3
-/V3/usr/lib64/libKPim5GAPIPeople.so.5.24.3
-/V3/usr/lib64/libKPim5GAPITasks.so.5.24.3
+/V3/usr/lib64/libKPim5GAPIBlogger.so.5.24.4
+/V3/usr/lib64/libKPim5GAPICalendar.so.5.24.4
+/V3/usr/lib64/libKPim5GAPICore.so.5.24.4
+/V3/usr/lib64/libKPim5GAPIDrive.so.5.24.4
+/V3/usr/lib64/libKPim5GAPILatitude.so.5.24.4
+/V3/usr/lib64/libKPim5GAPIMaps.so.5.24.4
+/V3/usr/lib64/libKPim5GAPIPeople.so.5.24.4
+/V3/usr/lib64/libKPim5GAPITasks.so.5.24.4
 /V3/usr/lib64/sasl2/libkdexoauth2.so.3.0.0
 /usr/lib64/libKPim5GAPIBlogger.so.5
-/usr/lib64/libKPim5GAPIBlogger.so.5.24.3
+/usr/lib64/libKPim5GAPIBlogger.so.5.24.4
 /usr/lib64/libKPim5GAPICalendar.so.5
-/usr/lib64/libKPim5GAPICalendar.so.5.24.3
+/usr/lib64/libKPim5GAPICalendar.so.5.24.4
 /usr/lib64/libKPim5GAPICore.so.5
-/usr/lib64/libKPim5GAPICore.so.5.24.3
+/usr/lib64/libKPim5GAPICore.so.5.24.4
 /usr/lib64/libKPim5GAPIDrive.so.5
-/usr/lib64/libKPim5GAPIDrive.so.5.24.3
+/usr/lib64/libKPim5GAPIDrive.so.5.24.4
 /usr/lib64/libKPim5GAPILatitude.so.5
-/usr/lib64/libKPim5GAPILatitude.so.5.24.3
+/usr/lib64/libKPim5GAPILatitude.so.5.24.4
 /usr/lib64/libKPim5GAPIMaps.so.5
-/usr/lib64/libKPim5GAPIMaps.so.5.24.3
+/usr/lib64/libKPim5GAPIMaps.so.5.24.4
 /usr/lib64/libKPim5GAPIPeople.so.5
-/usr/lib64/libKPim5GAPIPeople.so.5.24.3
+/usr/lib64/libKPim5GAPIPeople.so.5.24.4
 /usr/lib64/libKPim5GAPITasks.so.5
-/usr/lib64/libKPim5GAPITasks.so.5.24.3
+/usr/lib64/libKPim5GAPITasks.so.5.24.4
 /usr/lib64/sasl2/libkdexoauth2.so
 /usr/lib64/sasl2/libkdexoauth2.so.3
 /usr/lib64/sasl2/libkdexoauth2.so.3.0.0
